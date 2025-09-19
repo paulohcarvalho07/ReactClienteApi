@@ -42,6 +42,14 @@ export default function Alunos() {
         }
     }
 
+    async function editAluno(id){
+       try{
+         history.push(`aluno/novo/${id}`);
+       }catch(error){
+        alert('Não foi possível editar o aluno')
+       }
+     }
+
     return (
         <div className="aluno-container">
             <header>
