@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# 📘 ReactClienteApi – Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <a href="#technologies">Tecnologias</a> •
+  <a href="#features">Funcionalidades</a> •
+  <a href="#structure">Estrutura</a> •
+  <a href="#detailed-flow">Fluxo Detalhado</a> •
+  <a href="#contact">Contato</a>
+</p>
 
-## Available Scripts
+## 📖 Descrição
 
-In the project directory, you can run:
+Aplicação **React** para gerenciamento de alunos. Permite listar, criar, editar e excluir alunos consumindo uma **API backend separada**. Utiliza **React Hooks**, **React Router** e **Axios** para comunicação com a API.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 💻 Tecnologias
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* React.js
+* React Hooks (`useState`, `useEffect`, `useParams`, `useNavigate`)
+* Axios (para requisições HTTP)
+* React Router DOM (navegação entre páginas)
+* HTML / CSS
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Funcionalidades
 
-### `npm run build`
+✅ Listagem de alunos com filtro de busca  
+✅ Criação de novos alunos  
+✅ Edição de alunos existentes  
+✅ Exclusão de alunos  
+✅ Autenticação via JWT (armazenado no `localStorage`)  
+✅ Redirecionamento automático após ações (login, salvar, editar)  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📁 Estrutura do Projeto (`src`)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+src/
+├───assets           # Imagens, ícones e recursos estáticos
+├───pages
+│   ├───Alunos       # Página de listagem de alunos
+│   ├───Login        # Página de login
+│   └───NovoAluno    # Página de criação/edição de alunos
+├───services         # Configuração do Axios e chamadas à API
+├───App.js           # Componente principal e roteamento
+├───Global.css       # Estilos globais
+├───index.js         # Entry point do React
+└───routes.js        # Configuração de rotas da aplicação
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📝 Fluxo Detalhado do Frontend
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+O fluxo detalhado do aplicativo inclui:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Login**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   * Usuário insere credenciais na página de login.
+   * Requisição POST via Axios para a API de autenticação.
+   * JWT recebido armazenado no `localStorage`.
+   * Redirecionamento para a página de listagem de alunos.
 
-## Learn More
+2. **Listagem de Alunos**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   * Página de alunos faz requisição GET para listar todos os alunos.
+   * Filtro de busca é aplicado no estado local usando `useState`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **Criação de Alunos**
 
-### Code Splitting
+   * Página `NovoAluno` com formulário controlado via `useState`.
+   * Requisição POST via Axios para a API para criar novo aluno.
+   * Após sucesso, redireciona para a lista de alunos.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. **Edição de Alunos**
 
-### Analyzing the Bundle Size
+   * Página `NovoAluno` é reutilizada para edição.
+   * Requisição GET com `id` do aluno para preencher o formulário.
+   * Requisição PUT via Axios para atualizar os dados.
+   * Redirecionamento para listagem após sucesso.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5. **Exclusão de Alunos**
 
-### Making a Progressive Web App
+   * Botão de exclusão dispara requisição DELETE via Axios.
+   * Lista de alunos é atualizada imediatamente após exclusão.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 📬 Contato
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Autor: Paulo Santos  
+GitHub: [https://github.com/paulohcarvalho07](https://github.com/paulohcarvalho07)
